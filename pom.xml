@@ -13,6 +13,7 @@
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.1.7</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
