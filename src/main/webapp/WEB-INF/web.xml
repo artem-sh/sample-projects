@@ -21,6 +21,6 @@
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>faces/hello.xhtml</welcome-file>
+    <welcome-file>/hello.xhtml</welcome-file>
   </welcome-file-list>
 </web-app>
