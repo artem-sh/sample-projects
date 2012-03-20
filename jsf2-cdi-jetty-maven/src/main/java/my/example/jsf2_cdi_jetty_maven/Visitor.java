@@ -10,7 +10,7 @@ import java.io.Serializable;
 @SessionScoped
 public class Visitor implements Serializable {
   private String name;
-  
+
   @PostConstruct
   public void init() {
     name = "Ivan";
