@@ -2,7 +2,7 @@ package my.example.jsf2_cdi_jetty_maven;
 
 import javax.inject.Named;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 
 
