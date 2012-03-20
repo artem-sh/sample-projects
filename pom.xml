@@ -2,24 +2,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>sh.app.sample-projects</groupId>
-	<artifactId>sample-projects</artifactId>
-	<version>SNAPSHOT</version>
-	<name>Sample projects</name>
-	<packaging>pom</packaging>
+  <groupId>sh.app.sample-projects</groupId>
+  <artifactId>sample-projects</artifactId>
+  <version>SNAPSHOT</version>
+  <name>Sample projects</name>
+  <packaging>pom</packaging>
 
-	<prerequisites>
-		<maven>3.0</maven>
-	</prerequisites>
-  
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+
   <modules>
-		<module>jsf2-jetty-maven</module>
-	</modules>
-  
+    <module>jsf2-jetty-maven</module>
+    <module>jsf2-cdi-jetty-maven</module>
+  </modules>
+
   <properties>
-		<encoding>UTF-8</encoding>
-	</properties>
+    <encoding>UTF-8</encoding>
+
+    <java.source.level>1.6</java.source.level>
+    <com.sun.faces.version>2.1.7</com.sun.faces.version>
+    <jetty-maven-plugin.version>8.1.2.v20120308</jetty-maven-plugin.version>
+  </properties>
 
 </project>
