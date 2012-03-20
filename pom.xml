@@ -13,9 +13,13 @@
 	<prerequisites>
 		<maven>3.0</maven>
 	</prerequisites>
-
-	<modules>
+  
+  <modules>
 		<module>jsf2-jetty-maven</module>
 	</modules>
+  
+  <properties>
+		<encoding>UTF-8</encoding>
+	</properties>
 
 </project>
