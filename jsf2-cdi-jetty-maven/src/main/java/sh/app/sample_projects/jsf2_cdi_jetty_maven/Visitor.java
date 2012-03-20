@@ -1,4 +1,4 @@
-package my.example.jsf2_cdi_jetty_maven;
+package sh.app.sample_projects.jsf2_cdi_jetty_maven;
 
 import javax.inject.Named;
 import javax.annotation.PostConstruct;

@@ -1,4 +1,4 @@
-package my.example.jsf2_jetty_maven;
+package sh.app.sample_projects.jsf2_jetty_maven;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
