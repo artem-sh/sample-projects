@@ -27,5 +27,4 @@
   </bean>
 
   <jpa:repositories base-package="sh.app.sample_projects.it_spring_dbunit.repository"/>
-
 </beans>

@@ -28,6 +28,7 @@
     <com.sun.faces.version>2.1.7</com.sun.faces.version>
     <jetty-maven-plugin.version>8.1.2.v20120308</jetty-maven-plugin.version>
     <org.slf4j.version>1.6.5</org.slf4j.version>
+    <junit.version>4.10</junit.version>
   </properties>
 
 </project>
