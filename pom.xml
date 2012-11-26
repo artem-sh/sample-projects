@@ -17,14 +17,17 @@
   <modules>
     <module>jsf2-jetty-maven</module>
     <module>jsf2-cdi-jetty-maven</module>
+    <module>it-spring-dbunit</module>
   </modules>
 
   <properties>
     <encoding>UTF-8</encoding>
 
     <java.source.level>1.6</java.source.level>
+    <spring.version>3.1.3.RELEASE</spring.version>
     <com.sun.faces.version>2.1.7</com.sun.faces.version>
     <jetty-maven-plugin.version>8.1.2.v20120308</jetty-maven-plugin.version>
+    <org.slf4j.version>1.6.5</org.slf4j.version>
   </properties>
 
 </project>
