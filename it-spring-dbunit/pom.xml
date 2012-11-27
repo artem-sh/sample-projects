@@ -12,6 +12,7 @@
 
   <groupId>sh.app.sample-projects</groupId>
   <artifactId>it-spring-dbunit</artifactId>
+  <version>SNAPSHOT</version>
   <name>Integration testing with Spring and DbUnit</name>
 
 

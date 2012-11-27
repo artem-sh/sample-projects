@@ -10,8 +10,10 @@
     <version>SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
+
   <groupId>sh.app.sample-projects</groupId>
   <artifactId>jsf2-cdi-jetty-maven</artifactId>
+  <version>SNAPSHOT</version>
   <name>JSF 2, CDI, Jetty and Maven alltogether</name>
 
   <dependencies>
