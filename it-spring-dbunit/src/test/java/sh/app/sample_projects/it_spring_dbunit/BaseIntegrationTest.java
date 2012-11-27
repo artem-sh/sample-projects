@@ -17,4 +17,4 @@ import org.springframework.transaction.annotation.Transactional;
         DependencyInjectionTestExecutionListener.class,
         DirtiesContextTestExecutionListener.class,
         TransactionDbUnitTestExecutionListener.class})
-public class ItTestBase {}
+public class BaseIntegrationTest {}
