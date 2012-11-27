@@ -15,9 +15,9 @@ public class Main {
 
     User user = new User();
     user.setFirstname("Bon");
-    user.setLastname("Jovy");
+    user.setLastname("Jovi");
     repository.save(user);
 
-    log.info(repository.findAll().toString());
+    log.info(repository.findByLastnameIgnoreCase("JOVI").toString());
   }
 }
