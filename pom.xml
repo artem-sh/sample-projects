@@ -18,6 +18,7 @@
     <module>jsf2-jetty-maven</module>
     <module>jsf2-cdi-jetty-maven</module>
     <module>it-spring-dbunit</module>
+    <module>it-embedded-http-server</module>
   </modules>
 
   <properties>
