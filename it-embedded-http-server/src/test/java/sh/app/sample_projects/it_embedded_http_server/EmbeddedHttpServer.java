@@ -1,14 +1,15 @@
 package sh.app.sample_projects.it_embedded_http_server;
 
-import com.sun.net.httpserver.*;
-import org.apache.commons.io.FileUtils;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpsConfigurator;
+import com.sun.net.httpserver.HttpsServer;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.security.KeyStore;
@@ -43,52 +44,6 @@ public class EmbeddedHttpServer {
    */
   private EmbeddedHttpServer() {}
 
-  /**
-   * The class represents a server handler triggered on incoming request.
-   * <p>
-   * The handler checks that a request is a HTTP GET and that url path is the expected one.
-   * If all checks are passed it writes pre-configured file content to the HTTP response body.
-   */
-  private static class FileDownloadingHandler implements HttpHandler {
-    /** URL path. */
-    private final String urlPath;
-
-    /** File to be downloaded. */
-    private final File downloadFile;
-
-    /**
-     * Creates and configures FileDownloadingHandler.
-     *
-     * @param urlPath Url path on which a future GET request is going to be executed.
-     * @param downloadFile File to be written into the HTTP response.
-     */
-    FileDownloadingHandler(String urlPath, File downloadFile) {
-      this.urlPath = urlPath;
-      this.downloadFile = downloadFile;
-    }
-
-    /**
-     * Handles HTTP requests: checks that a request is a HTTP GET and that url path is the expected one.
-     * If all checks are passed it writes pre-configured file content to the HTTP response body.
-     *
-     * @param exchange Wrapper above the HTTP request and response.
-     */
-    @Override public void handle(HttpExchange exchange) throws IOException {
-      assert "GET".equalsIgnoreCase(exchange.getRequestMethod());
-      assert urlPath == null || urlPath.equals(exchange.getRequestURI().toString());
-
-      exchange.getResponseHeaders().set("Content-Type", "application/octet-stream");
-      exchange.sendResponseHeaders(200, 0);
-
-      OutputStream resBody = exchange.getResponseBody();
-      try {
-        resBody.write(FileUtils.readFileToByteArray(downloadFile));
-      }
-      finally {
-        resBody.close();
-      }
-    }
-  }
 
   /**
    * Creates and starts embedded HTTP server.
@@ -109,17 +64,12 @@ public class EmbeddedHttpServer {
   }
 
   /**
-   * Configures server with suitable for testing parameters.
+   * Configures server with test-specific HTTP handler.
    *
-   * @param urlPath Url path on which a future GET request is going to be executed.
-   *                If urlPath is null then no assertions against the requesting url will be done.
-   * @param fileToBeDownloaded File to be written into the HTTP response.
    * @return Configured HTTP(s) server.
    */
-  public EmbeddedHttpServer withFileDownloadingHandler(String urlPath, File fileToBeDownloaded) {
-    assert fileToBeDownloaded.exists();
-
-    httpSrv.createContext("/", new FileDownloadingHandler(urlPath, fileToBeDownloaded));
+  public EmbeddedHttpServer withHandler(HttpHandler handler) {
+    httpSrv.createContext("/", handler);
 
     return this;
   }
@@ -128,7 +78,7 @@ public class EmbeddedHttpServer {
    * Stops server by closing the listening socket and disallowing any new exchanges
    * from being processed.
    *
-   * @param delay - the maximum time in seconds to wait until exchanges have finished.
+   * @param delay Maximum time in seconds to wait until exchanges have finished.
    */
   public void stop(int delay) {
     httpSrv.stop(delay);
