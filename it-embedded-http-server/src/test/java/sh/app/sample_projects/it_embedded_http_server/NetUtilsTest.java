@@ -54,7 +54,7 @@ public class NetUtilsTest {
     try {
       String urlPath = "/testDownloadUrl/";
 
-      srv = EmbeddedHttpServer.startHttpServer().withHandler(new FileDownloadingHandler(urlPath, fileToBeDownloaded));
+      srv = EmbeddedHttpServer.startHttpsServer().withHandler(new FileDownloadingHandler(urlPath, fileToBeDownloaded));
 
       downloadedFile = new File(System.getProperty("java.io.tmpdir") + File.separator + "url-http.file");
 
