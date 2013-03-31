@@ -8,6 +8,8 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 public class NetUtils {
   /** Default buffer size = 4K. */
   private static final int BUF_SIZE = 4096;
@@ -24,8 +26,8 @@ public class NetUtils {
    * @throws IOException If error occurred.
    */
   public static File downloadUrl(URL url, File file) throws IOException {
-    assert url != null;
-    assert file != null;
+    checkNotNull(url);
+    checkNotNull(file);
 
     InputStream in = null;
     OutputStream out = null;
@@ -95,8 +97,8 @@ public class NetUtils {
    * Copies input byte stream to output byte stream.
    */
   private static int copy(InputStream in, OutputStream out) throws IOException {
-    assert in != null;
-    assert out != null;
+    checkNotNull(in);
+    checkNotNull(out);
 
     byte[] buf = new byte[BUF_SIZE];
 
